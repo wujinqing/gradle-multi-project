@@ -1,0 +1,50 @@
+group 'com.jin'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+
+// 所有子项目的通用配置
+subprojects {
+    apply plugin: 'java'
+    version = '1.0-SNAPSHOT'
+
+    // JVM 版本号要求
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    //定义版本号
+    ext {
+        fastjsonVersion = '1.2.34'
+        junitVersion = '4.11'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // 通用依赖
+        compile(
+                "com.alibaba:fastjson:${fastjsonVersion}"
+        )
+
+        // 测试依赖
+        testCompile(
+                "junit:junit:${junitVersion}"
+        )
+    }
+}
+
+

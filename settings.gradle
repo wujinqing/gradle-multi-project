@@ -1,0 +1,7 @@
+rootProject.name = 'gradle-multi-project'
+include 'common'
+include 'service'
+include 'util'
+include 'rpc:thrift'
+include 'rpc:protobuf'
+
